@@ -731,17 +731,19 @@
       // Your WhatsApp number (no + or ‑ symbols)
       const whatsappNumber = "917510724165"; // TODO: change to your number
 
-      // Build the WhatsApp text (line breaks = %0A)
-      const text =
-        `Name: ${name}%0A` +
-        `Phone: ${phone}%0A` +
-        (email ? `Email: ${email}%0A` : "") +
-        (license ? `License Type: ${license}%0A` : "") +
-        `Message: ${message}`;
+        // Build the WhatsApp text (line breaks = %0A)
+        const text = 
+    `Name: ${name}\n` +
+    `Phone: ${phone}\n` +
+    (email ? `Email: ${email}\n` : "") +
+    (license ? `License Type: ${license}\n` : "") +
+    `Message: ${message}`;
 
-      // Open WhatsApp chat in new tab/window
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURI(text)}`, "_blank");
-    });
+    const encodedText = encodeURIComponent(text);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+    window.open(whatsappURL, "_blank");
+    })
 </script>
 
 
